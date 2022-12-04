@@ -1,0 +1,15 @@
+﻿namespace BlazorBusiness.Domain.Entities.CRM
+{
+    public class Contact
+    {
+        public int Id { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public string? EmailAddress { get; set; }
+        public string? PhoneNumber { get; set; }
+        public string? Notes { get; set; }    
+        public int Rating { get; set; }
+        public DateTime? Created { get; set; }
+        public DateTime? LastModified { get; set; }
+    }
+}

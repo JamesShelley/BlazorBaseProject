@@ -1,0 +1,40 @@
+﻿@page "/crm/contacts/create"
+@using BlazorBusiness.Core.Services
+@using BlazorBusiness.Core.Models.CommonModels.CRM;
+@using BlazorBusiness.Domain.Entities.CRM;
+@inject ContactService ContactService
+
+<PageTitle>Create CRM Contact</PageTitle>
+
+<h1>Create CRM</h1>
+
+<p>Create a new contact record in the CRM.</p>
+
+<EditForm Model=@ContactForm OnValidSubmit="@HandleValidSubmit">
+    <div class="form-group">
+        <label for="Name">Name</label>
+        <InputText @bind-Value=ContactForm.FirstName class="form-control" id="FirstName" />
+        <ValidationMessage For="@(() => ContactForm.FirstName)" />
+    </div>
+    <div class="form-group">
+        <label for="Name">Last Name</label>
+        <InputText @bind-Value=ContactForm.LastName class="form-control" id="LastName" />
+        <ValidationMessage For="@(() => ContactForm.FirstName)" />
+
+    </div>
+    <div class="form-group">
+        <label for="Name">Email Address</label>
+        <InputText @bind-Value=ContactForm.EmailAddress class="form-control" id="EmailAddress" type="email" />
+        <ValidationMessage For="@(() => ContactForm.EmailAddress)" />
+    </div>
+    <input type="submit" class="btn btn-success" value="Create" />
+</EditForm>
+
+@code {
+    private ContactFormSubmission ContactForm = new ContactFormSubmission();
+
+    protected void HandleValidSubmit()
+    {
+        ContactService.CreateContactRecord(ContactForm);
+    }
+}

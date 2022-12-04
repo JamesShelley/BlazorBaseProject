@@ -1,0 +1,16 @@
+﻿@page "/crm/"
+@page "/crm/dashboard"
+@using BlazorBusiness.Core.Services
+@using BlazorBusiness.Core.Models.CommonModels.CRM;
+@inject ContactService ContactService
+
+<PageTitle>CRM Contacts</PageTitle>
+
+<h1>Welcome to your CRM</h1>
+
+<a href="/crm/contacts">View Contacts</a>
+<a href="/crm/contacts/create">Create Contact</a>
+
+@code {
+    
+}
